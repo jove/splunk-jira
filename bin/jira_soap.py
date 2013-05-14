@@ -78,7 +78,7 @@ try:
 
    # TODO get keys from configuration
    keys = (('assignee', None),
-          ('description', None),
+          #('description', None),
           ('key', None),
           ('summary', None),
           ('reporter', None),
@@ -109,6 +109,12 @@ try:
             row['SFDCcase'] = f['values']
          if f['customfieldId'] == "customfield_10091":
             row['TargetRelease'] = f['values']
+         # custom fields added by zhongj1
+         if f['customfieldId'] == "customfield_10001":
+            row['severity'] = f['values']
+         if f['customfieldId'] == "customfield_10240":
+            row['resolvedBy'] = f['values']   
+            
 
       row['host'] = hostname
       row['index'] = 'jira'
